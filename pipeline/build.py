@@ -688,7 +688,7 @@ def build_index(directory, state, today):
     horizon = (today + dt.timedelta(days=10)).isoformat()
     code = {f: i for i, f in enumerate(FLAG_CODES)}
     r4 = lambda x: round(x, 4) if x is not None else None
-    analysed, upcoming = [], []
+    analysed, upcoming, checks = [], [], {}
     for fname in os.listdir(DETAIL):
         if not fname.endswith(".json"):
             continue
@@ -709,6 +709,7 @@ def build_index(directory, state, today):
                          r4(c["m"].get("revCagr")), r4(c["m"].get("margin")),
                          int(usd / 1e6) if usd else None, 1 if big else 0, c.get("exch") or d.get("exch"), 0,
                          seen if seen and seen >= fresh_cutoff else None])
+        checks[sym] = sum(1 for v in c["parts"].values() if v is not None)
         if big and c.get("next") and today.isoformat() <= c["next"] <= horizon:
             upcoming.append({"t": sym, "d": c["next"], "mcap": int(usd / 1e6)})
     done = {r[0] for r in analysed}
@@ -719,7 +720,8 @@ def build_index(directory, state, today):
         no_data = 1 if state.get(sym, {}).get("f", 0) >= 3 else 0
         pending.append([sym, d["name"], None, None, None, None, None, None, None,
                         int(d["mcap"] / 1e6) if d.get("mcap") else None, 0, d.get("exch"), no_data, None])
-    analysed.sort(key=lambda r: (-r[5], -(r[9] or 0)))
+    # Equal scores: a company that passed all five checks ranks above one scored on three
+    analysed.sort(key=lambda r: (-r[5], -checks[r[0]], -(r[9] or 0)))
     pending.sort(key=lambda r: -(r[9] or 0))
     upcoming.sort(key=lambda u: (u["d"], -u["mcap"]))
     return analysed + pending, len(analysed), upcoming
