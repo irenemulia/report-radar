@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+# Published to the gh-pages branch by the workflow, never committed here
+docs/data/
