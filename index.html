@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Report Radar</title>
+  <meta name="description" content="Daily, plain-language readings of company financial reports worldwide, with green flags and red flags.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23071330'/><path d='M6 22a10 10 0 0 1 20 0' fill='none' stroke='%231d5bff' stroke-width='2'/><path d='M11 22a5 5 0 0 1 10 0' fill='none' stroke='%2338bdf8' stroke-width='2'/><path d='M16 22 23 12' stroke='%23fff' stroke-width='2' stroke-linecap='round'/><circle cx='16' cy='22' r='2' fill='%23fff'/></svg>">
+  <meta name="theme-color" content="#071330">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;650;700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="#/">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="rr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1d4f"/><stop offset="1" stop-color="#1d5bff"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#rr)"/><path d="M6 22a10 10 0 0 1 20 0" fill="none" stroke="#7da7ff" stroke-width="1.6" opacity=".7"/><path d="M11 22a5 5 0 0 1 10 0" fill="none" stroke="#38bdf8" stroke-width="1.6"/><path d="M16 22 23 12" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="22" r="2" fill="#fff"/></svg>
+      Report Radar</a>
+    <nav>
+      <a href="#/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3v18"/><path d="M6 4h12l-3 4 3 4H6"/></svg>Today</a>
+      <a href="#/ranking"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20v-7M12 20V4M19 20v-11"/></svg>Ranking</a>
+      <a href="#/search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>Search</a>
+      <a href="#/watch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9l-5.2 2.8 1-5.9L3.5 9.7l5.9-.8z"/></svg>Watchlist</a>
+      <a href="#/learn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 016.5 3H20v15H6.5A2.5 2.5 0 004 20.5z"/><path d="M4 20.5A2.5 2.5 0 016.5 18H20v3H6.5"/></svg>Learn</a>
+    </nav>
+  </header>
+  <main id="app"><p class="muted">Loading today's data…</p></main>
+  <footer class="muted small">
+    Educational tool, not financial advice. Data: Yahoo Finance, refreshed every day. It may be delayed or incomplete.
+  </footer>
+  <script src="explain.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
